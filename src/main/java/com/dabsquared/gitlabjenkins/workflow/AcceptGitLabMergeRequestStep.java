@@ -98,6 +98,7 @@ public class AcceptGitLabMergeRequestStep extends Step {
                         } catch (WebApplicationException | ProcessingException e) {
                             printf("Failed to accept merge request for project '%s': %s%n", mergeRequest.getProjectId(), e.getMessage());
                             LOGGER.log(Level.SEVERE, String.format("Failed to accept merge request for project '%s'", mergeRequest.getProjectId()), e);
+			    throw e;
                         }
                     }
                 }
